@@ -1,0 +1,415 @@
+ADD TABLE "spo-clientes"
+  AREA "Dados"
+  DESCRIPTION "Clientes provenientes do cadastro via Microsoft Forms e Automate"
+  DUMP-NAME "spo-clientes"
+
+ADD FIELD "id" OF "spo-clientes" AS integer 
+  DESCRIPTION "Id cadastro na lista sharepoint"
+  FORMAT "->>>,>>>,>>9"
+  INITIAL "0"
+  LABEL "id"
+  POSITION 2
+  MAX-WIDTH 4
+  COLUMN-LABEL "id"
+  ORDER 10
+  MANDATORY
+
+ADD FIELD "cod-rep" OF "spo-clientes" AS integer 
+  DESCRIPTION "Codigo do representante"
+  FORMAT ">>>9"
+  INITIAL "0"
+  LABEL "cod-rep"
+  POSITION 3
+  MAX-WIDTH 4
+  COLUMN-LABEL "cod-rep"
+  ORDER 20
+  MANDATORY
+
+ADD FIELD "nome-rep" OF "spo-clientes" AS character 
+  DESCRIPTION "Nome do representante"
+  FORMAT "x(60)"
+  INITIAL ""
+  LABEL "nome-rep"
+  POSITION 4
+  MAX-WIDTH 120
+  COLUMN-LABEL "nome-rep"
+  ORDER 30
+  MANDATORY
+
+ADD FIELD "razao-social" OF "spo-clientes" AS character 
+  DESCRIPTION "Razao social do cliente"
+  FORMAT "x(80)"
+  INITIAL ""
+  LABEL "razao-social"
+  POSITION 5
+  MAX-WIDTH 160
+  COLUMN-LABEL "razao-social"
+  ORDER 40
+  MANDATORY
+
+ADD FIELD "segmento" OF "spo-clientes" AS character 
+  DESCRIPTION "Segmento do cliente"
+  FORMAT "x(20)"
+  INITIAL ""
+  LABEL "segmento"
+  POSITION 6
+  MAX-WIDTH 40
+  COLUMN-LABEL "segmento"
+  ORDER 50
+  MANDATORY
+
+ADD FIELD "cod-segmento" OF "spo-clientes" AS integer 
+  DESCRIPTION "Codigo do segmento "
+  FORMAT "99"
+  INITIAL "0"
+  LABEL "cod-segmento"
+  POSITION 7
+  MAX-WIDTH 4
+  VIEW-AS "VIEW-AS COMBO-BOX
+   LIST-ITEM-PAIRS ""Revenda"", 1,
+                   ""Institucional"", 2,
+                   ""Varejo"", 3,
+                   ""Exporta‡Æo"",4,
+                   ""Supermercado"",5"
+  COLUMN-LABEL "cod-segmento"
+  ORDER 60
+
+ADD FIELD "cnpj" OF "spo-clientes" AS character 
+  DESCRIPTION "CNPJ do cliente"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "cnpj"
+  POSITION 8
+  MAX-WIDTH 30
+  COLUMN-LABEL "cnpj"
+  ORDER 70
+  MANDATORY
+
+ADD FIELD "insc-estadual" OF "spo-clientes" AS character 
+  DESCRIPTION "Inscricao estadual do cliente"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "insc-estadual"
+  POSITION 9
+  MAX-WIDTH 30
+  COLUMN-LABEL "insc-estadual"
+  ORDER 80
+
+ADD FIELD "telefone" OF "spo-clientes" AS character 
+  DESCRIPTION "Telefone principal do cliente"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "telefone"
+  POSITION 10
+  MAX-WIDTH 30
+  COLUMN-LABEL "telefone"
+  ORDER 90
+
+ADD FIELD "e-mail" OF "spo-clientes" AS character 
+  DESCRIPTION "E-mail principal do cliente"
+  FORMAT "x(40)"
+  INITIAL ""
+  LABEL "e-mail"
+  POSITION 11
+  MAX-WIDTH 80
+  COLUMN-LABEL "e-mail"
+  ORDER 100
+
+ADD FIELD "rua" OF "spo-clientes" AS character 
+  DESCRIPTION "Rua"
+  FORMAT "x(20)"
+  INITIAL ""
+  LABEL "rua"
+  POSITION 12
+  MAX-WIDTH 40
+  COLUMN-LABEL "rua"
+  ORDER 110
+
+ADD FIELD "numero" OF "spo-clientes" AS character 
+  DESCRIPTION "Numero do endereo"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "numero"
+  POSITION 13
+  MAX-WIDTH 30
+  COLUMN-LABEL "numero"
+  ORDER 120
+
+ADD FIELD "bairro" OF "spo-clientes" AS character 
+  DESCRIPTION "Bairro do endereco"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "bairro"
+  POSITION 14
+  MAX-WIDTH 30
+  COLUMN-LABEL "bairro"
+  ORDER 130
+
+ADD FIELD "cidade" OF "spo-clientes" AS character 
+  DESCRIPTION "Cidade"
+  FORMAT "x(50)"
+  INITIAL ""
+  LABEL "cidade"
+  POSITION 15
+  MAX-WIDTH 100
+  COLUMN-LABEL "cidade"
+  ORDER 140
+
+ADD FIELD "estado" OF "spo-clientes" AS character 
+  DESCRIPTION "Estado do cliente"
+  FORMAT "x(4)"
+  INITIAL ""
+  LABEL "estado"
+  POSITION 16
+  MAX-WIDTH 8
+  COLUMN-LABEL "estado"
+  ORDER 150
+
+ADD FIELD "cep" OF "spo-clientes" AS character 
+  DESCRIPTION "Cep do cliente"
+  FORMAT "x(15)"
+  INITIAL ""
+  LABEL "cep"
+  POSITION 17
+  MAX-WIDTH 30
+  COLUMN-LABEL "cep"
+  ORDER 160
+
+ADD FIELD "suframa" OF "spo-clientes" AS logical 
+  DESCRIPTION "Se o cliente possui suframa"
+  FORMAT "yes/no"
+  INITIAL "no"
+  LABEL "suframa"
+  POSITION 18
+  MAX-WIDTH 1
+  VIEW-AS "VIEW-AS TOGGLE-BOX"
+  COLUMN-LABEL "suframa"
+  ORDER 170
+  MANDATORY
+
+ADD FIELD "num-suframa" OF "spo-clientes" AS character 
+  DESCRIPTION "Numero do suframa caso o cliente possua"
+  FORMAT "x(25)"
+  INITIAL ""
+  LABEL "num-suframa"
+  POSITION 19
+  MAX-WIDTH 50
+  COLUMN-LABEL "num-suframa"
+  ORDER 180
+
+ADD FIELD "filiais" OF "spo-clientes" AS logical 
+  DESCRIPTION "Se o cliente possui filiais"
+  FORMAT "yes/no"
+  INITIAL "no"
+  LABEL "filiais"
+  POSITION 20
+  MAX-WIDTH 1
+  VIEW-AS "view-as toggle-box"
+  COLUMN-LABEL "filiais"
+  ORDER 190
+  MANDATORY
+
+ADD FIELD "loc-filiais" OF "spo-clientes" AS character 
+  DESCRIPTION "Localizacao e quantidade de filiais"
+  FORMAT "x(200)"
+  INITIAL ""
+  LABEL "loc-filiais"
+  POSITION 21
+  MAX-WIDTH 400
+  COLUMN-LABEL "loc-filiais"
+  ORDER 200
+
+ADD FIELD "reg-trib" OF "spo-clientes" AS logical 
+  DESCRIPTION "Se o regime tributario e cumulativo ou nao"
+  FORMAT "yes/no"
+  INITIAL "no"
+  LABEL "reg-trib"
+  POSITION 22
+  MAX-WIDTH 1
+  COLUMN-LABEL "reg-trib"
+  ORDER 210
+
+ADD FIELD "prin-prod-vend" OF "spo-clientes" AS character 
+  DESCRIPTION "Principais produtos vendidos"
+  FORMAT "x(200)"
+  INITIAL ""
+  LABEL "prin-prod-vend"
+  POSITION 23
+  MAX-WIDTH 400
+  COLUMN-LABEL "prin-prod-vend"
+  ORDER 220
+
+ADD FIELD "num-reg-jc" OF "spo-clientes" AS character 
+  DESCRIPTION "Numero de registro na junta comercial"
+  FORMAT "x(25)"
+  INITIAL ""
+  LABEL "num-reg-jc"
+  POSITION 24
+  MAX-WIDTH 50
+  COLUMN-LABEL "num-reg-jc"
+  ORDER 230
+  MANDATORY
+
+ADD FIELD "cap-reg" OF "spo-clientes" AS decimal 
+  DESCRIPTION "Capital registrado"
+  FORMAT "->>>,>>>,>>9.99"
+  INITIAL "0"
+  LABEL "cap-reg"
+  POSITION 26
+  MAX-WIDTH 17
+  COLUMN-LABEL "cap-reg"
+  DECIMALS 2
+  ORDER 250
+  MANDATORY
+
+ADD FIELD "socios" OF "spo-clientes" AS character 
+  DESCRIPTION "Nome e cpf dos socios"
+  FORMAT "x(200)"
+  INITIAL ""
+  LABEL "socios"
+  POSITION 27
+  MAX-WIDTH 400
+  COLUMN-LABEL "socios"
+  ORDER 260
+  MANDATORY
+
+ADD FIELD "resp-compras" OF "spo-clientes" AS character 
+  DESCRIPTION "Responsavel pelas compras"
+  FORMAT "x(50)"
+  INITIAL ""
+  LABEL "resp-compras"
+  POSITION 28
+  MAX-WIDTH 100
+  COLUMN-LABEL "resp-compras"
+  ORDER 270
+
+ADD FIELD "dados-banco" OF "spo-clientes" AS character 
+  DESCRIPTION "Dados bancarios, banco, agencia e telefone"
+  FORMAT "x(100)"
+  INITIAL ""
+  LABEL "dados-banco"
+  POSITION 29
+  MAX-WIDTH 200
+  COLUMN-LABEL "dados-banco"
+  ORDER 280
+
+ADD FIELD "bens" OF "spo-clientes" AS character 
+  DESCRIPTION "Bens - imoveis e veiculos"
+  FORMAT "x(200)"
+  INITIAL ""
+  LABEL "bens"
+  POSITION 30
+  MAX-WIDTH 400
+  COLUMN-LABEL "bens"
+  ORDER 290
+
+ADD FIELD "end-bol-fisico" OF "spo-clientes" AS character 
+  DESCRIPTION "Endereco para envio de boletos fisicos"
+  FORMAT "x(80)"
+  INITIAL ""
+  LABEL "end-bol-fisico"
+  POSITION 31
+  MAX-WIDTH 160
+  COLUMN-LABEL "end-bol-fisico"
+  ORDER 300
+
+ADD FIELD "end-bol-dig" OF "spo-clientes" AS character 
+  DESCRIPTION "Endereco de e-mail para envio de boletos no formato digital "
+  FORMAT "x(40)"
+  INITIAL ""
+  LABEL "end-bol-dig"
+  POSITION 32
+  MAX-WIDTH 80
+  COLUMN-LABEL "end-bol-dig"
+  ORDER 310
+
+ADD FIELD "lim-credito" OF "spo-clientes" AS integer 
+  DESCRIPTION "Limite de credito"
+  FORMAT ">>>>>>>>>9"
+  INITIAL "0"
+  LABEL "lim-credito"
+  POSITION 33
+  MAX-WIDTH 4
+  COLUMN-LABEL "lim-credito"
+  ORDER 320
+  MANDATORY
+
+ADD FIELD "par-financeiro" OF "spo-clientes" AS character 
+  DESCRIPTION "Parecer financeiro"
+  FORMAT "x(500)"
+  INITIAL ""
+  LABEL "par-financeiro"
+  POSITION 34
+  MAX-WIDTH 1000
+  COLUMN-LABEL "par-financeiro"
+  ORDER 330
+  MANDATORY
+
+ADD FIELD "par-comercial" OF "spo-clientes" AS character 
+  DESCRIPTION "Parecer comercial"
+  FORMAT "x(500)"
+  INITIAL ""
+  LABEL "par-comercial"
+  POSITION 35
+  MAX-WIDTH 1000
+  COLUMN-LABEL "par-comercial"
+  ORDER 340
+  MANDATORY
+
+ADD FIELD "cod-emitente" OF "spo-clientes" AS integer 
+  DESCRIPTION "Codigo do emitente criado"
+  FORMAT ">>>>>>9"
+  INITIAL "0"
+  LABEL "cod-emitente"
+  POSITION 36
+  MAX-WIDTH 4
+  COLUMN-LABEL "cod-emitente"
+  ORDER 350
+
+ADD FIELD "cod-status" OF "spo-clientes" AS integer 
+  DESCRIPTION "Codigo de status de integracao entre Datasul x Sharepoint"
+  FORMAT "99"
+  INITIAL "0"
+  LABEL "cod-status"
+  POSITION 37
+  MAX-WIDTH 4
+  COLUMN-LABEL "cod-status"
+  ORDER 360
+
+ADD FIELD "atividade" OF "spo-clientes" AS character 
+  DESCRIPTION "Se o cliente e consumidor ou revenda"
+  FORMAT "x(12)"
+  INITIAL ""
+  LABEL "atividade"
+  POSITION 38
+  MAX-WIDTH 24
+  COLUMN-LABEL "atividade"
+  ORDER 370
+  CASE-SENSITIVE
+
+ADD FIELD "zfm" OF "spo-clientes" AS logical 
+  DESCRIPTION "Se e zona franca de manaus"
+  FORMAT "yes/no"
+  INITIAL "no"
+  LABEL "zfm"
+  POSITION 39
+  MAX-WIDTH 1
+  VIEW-AS "VIEW-AS TOGGLE-BOX"
+  COLUMN-LABEL "zfm"
+  ORDER 380
+
+ADD FIELD "dt-reg-jc" OF "spo-clientes" AS datetime 
+  DESCRIPTION "Data registro na junta comercial"
+  FORMAT "99/99/9999 HH:MM:SS"
+  INITIAL ?
+  LABEL "dt-reg-jc"
+  POSITION 42
+  MAX-WIDTH 8
+  COLUMN-LABEL "dt-reg-jc"
+  ORDER 390
+
+.
+PSC
+cpstream=ibm850
+.
+0000009254
