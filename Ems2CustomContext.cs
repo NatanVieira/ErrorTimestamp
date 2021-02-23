@@ -12,7 +12,7 @@ namespace ErrorTimestamp
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseOpenEdge("DSN=HOMOL_ems2custom;HOST=ZEUS;port=48001;UID=pub;PWD=pub;DIL=1;Database=ems2custom");
+            optionsBuilder.UseOpenEdge("DSN=DSN_Database;HOST=HOSTNAME;port=99999;UID=pub;PWD=pub;DIL=1;Database=database_name");
         }
 
         public DbSet<SpoClientes> SClientes { get; set; }
